@@ -16,10 +16,10 @@ from scipy.signal import butter, sosfilt
 
 from scipy.stats import norm
 
-from eval1.audio.gmm import gmm
+from audio.gmm import gmm
 #from statsmodels.stats.proportion import proportion_confint
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-from eval1.audio.defenses.base import AudioSmoother
+from audio.defenses.base import AudioSmoother
 
 class GaussianSmoother(AudioSmoother):
     def __init__(self, sigma, **kwargs):

@@ -1,6 +1,6 @@
 from sklearn.mixture import GaussianMixture
 from sklearn.cluster import KMeans, MiniBatchKMeans
-from eval1.audio.transforms import MFCC, MelSpectrogram, Spectrogram, SpectrogramToDB, Compose, PNCC
+from audio.transforms import MFCC, MelSpectrogram, Spectrogram, SpectrogramToDB, Compose, PNCC
 from scipy.io import wavfile
 import torch
 import numpy as np

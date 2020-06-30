@@ -17,9 +17,8 @@ import torch
 import argparse
 import os
 import sys
-sys.path.append("eval1")
 
-from eval1.audio.train import train_model, eval_benign
+from audio.train import train_model, eval_benign
 
 from armory.utils.config_loading import (
     load_dataset,
@@ -46,14 +45,14 @@ class AudioClassificationTrain(Scenario):
         feats = model_kwargs["transform"]
         adv_eps = fit_kwargs["adv_eps"]
         adv_frac = fit_kwargs["adv_frac"]
-        if model_config["module"]=="eval1.audio.model" and model_kwargs["cnndim"]==1:
+        if model_config["module"]=="audio.model" and model_kwargs["cnndim"]==1:
             model_file = "cnn_feats-"+feats
             if model_kwargs["noise_type"] != "none":
                 model_file+="_noise-"+model_kwargs["noise_type"]+("-raw" if noise_raw==1 else ("-spec" if noise_raw==0 else ""))+"-"+str(noise_val)
             if adv_eps >0 :
                 model_file+="_adv-"+str(adv_eps)+"-"+str(adv_frac)
             model_file+=".pth"
-        elif model_config["module"]=="eval1.audio.model" and model_kwargs["cnndim"]==2:
+        elif model_config["module"]=="audio.model" and model_kwargs["cnndim"]==2:
             model_file = "cnn2d_feats-"+feats
             if noise_type != "none":
                 model_file+="_noise-"+noise_type+("-raw" if noise_raw==1 else ("-spec" if noise_raw==0 else ""))+"-"+str(noise_val)

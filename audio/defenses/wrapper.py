@@ -14,14 +14,14 @@ from scipy.cluster.hierarchy import linkage,fcluster
 
 from scipy.stats import norm
 
-from eval1.audio.gmm import gmm
+from audio.gmm import gmm
 #from statsmodels.stats.proportion import proportion_confint
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-from eval1.audio.defenses.deterministicmasking import *
-from eval1.audio.defenses.smoothing import *
+from audio.defenses.deterministicmasking import *
+from audio.defenses.smoothing import *
 
-from eval1.audio.defenses.base import AudioSmoother, NoSmoother
+from audio.defenses.base import AudioSmoother, NoSmoother
 
 
 

@@ -407,9 +407,9 @@ import numpy as np
 from scipy.signal import lfilter
 from scipy.fftpack import dct, idct
 
-from eval1.audio.sig.window import hamming
-from eval1.audio.sig.fbanks import MelFreq
-from eval1.audio.sig.transform import stpowspec
+from audio.sig.window import hamming
+from audio.sig.fbanks import MelFreq
+from audio.sig.transform import stpowspec
 
 
 class Melspec(object):

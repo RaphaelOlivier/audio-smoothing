@@ -12,11 +12,11 @@ import numpy as np
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-import eval1.audio.model as cnn_model
+import audio.model as cnn_model
 import os
 logger.debug(os.getcwd())
 from art.attacks import ProjectedGradientDescent, FastGradientMethod
-from eval1.audio.defenses.wrapper import SmoothedAudioClassifier
+from audio.defenses.wrapper import SmoothedAudioClassifier
 
 
 from sklearn.metrics import roc_auc_score

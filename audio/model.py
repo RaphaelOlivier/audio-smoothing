@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import sys
 import os
 sys.path.append("..")
-from eval1.audio.transforms import MFCC, MelSpectrogram, Spectrogram, SpectrogramToDB, Compose, PNCC, LPBiquad
+from audio.transforms import MFCC, MelSpectrogram, Spectrogram, SpectrogramToDB, Compose, PNCC, LPBiquad
 
 from art.classifiers import PyTorchClassifier
 import numpy as np
@@ -17,7 +17,7 @@ SAMPLE_RATE = 8000
 WINDOW_STEP_SIZE = 2000
 WINDOW_LENGTH = int(SAMPLE_RATE * WINDOW_STEP_SIZE / 1000)
 
-from eval1.audio.defenses.wrapper import SmoothedAudioClassifier
+from audio.defenses.wrapper import SmoothedAudioClassifier
 from art.classifiers.pytorch import PyTorchClassifier
 
 from armory.data.utils import maybe_download_weights_from_s3

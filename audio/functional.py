@@ -4,14 +4,14 @@ Copied from the torchaudio source code, commit d92de5b97
 import math
 import torch
 import numpy as np
-from eval1.audio.sig.spectemp import pncc
+from audio.sig.spectemp import pncc
 
-from eval1.audio.sig.spectemp import strf
-from eval1.audio.sig.window import hamming
-from eval1.audio.sig.transform import stpowspec
-from eval1.audio.sig.fbanks import Gammatone
-from eval1.audio.sig.spectemp import pncc
-from eval1.audio.sig.util import asymfilt
+from audio.sig.spectemp import strf
+from audio.sig.window import hamming
+from audio.sig.transform import stpowspec
+from audio.sig.fbanks import Gammatone
+from audio.sig.spectemp import pncc
+from audio.sig.util import asymfilt
 
 from scipy.signal import hilbert, lfilter
 from scipy.fftpack import dct, idct
@@ -20,7 +20,7 @@ import time
 
 import torch.nn.functional as F
 # from torch_dct import dct as torch_dct
-from eval1.audio.sig.pytorch_dct import dct as torch_dct
+from audio.sig.pytorch_dct import dct as torch_dct
 
 __all__ = [
     'scale',

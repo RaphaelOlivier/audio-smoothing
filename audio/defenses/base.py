@@ -15,7 +15,7 @@ from scipy.cluster.hierarchy import linkage,fcluster
 
 from scipy.stats import norm
 
-from eval1.audio.gmm import gmm
+from audio.gmm import gmm
 #from statsmodels.stats.proportion import proportion_confint
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
