@@ -19,6 +19,9 @@ WINDOW_LENGTH = int(SAMPLE_RATE * WINDOW_STEP_SIZE / 1000)
 
 from eval1.audio.defenses.wrapper import SmoothedAudioClassifier
 from art.classifiers.pytorch import PyTorchClassifier
+
+from armory.data.utils import maybe_download_weights_from_s3
+
 def preprocessing_fn(batch):
     """
     Standardize, then normalize sound clips
@@ -163,14 +166,10 @@ def get_art_model(model_kwargs, wrapper_kwargs, weights_file=None):
     model.to(DEVICE)
 
     if weights_file:
-        try:
-            dic = torch.load("saved_models/"+weights_file)
-            model.load_state_dict(dic)
-            logger.info("Model weights loaded successfully")
-        except Exception as e:
-            logger.info(os.listdir(os.getcwd()))
-            logger.warning(str(e))
-
+        filepath = maybe_download_weights_from_s3(weights_file)
+        dic = torch.load(filepath)
+        model.load_state_dict(dic)
+        logger.info("Model weights loaded successfully")
 
     
     wrapped_model = SmoothedPytorchClassifier(
